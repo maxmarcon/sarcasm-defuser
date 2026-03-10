@@ -1,0 +1,35 @@
+[project]
+name = "ml"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "datasets>=4.5.0",
+    "dotenv>=0.9.9",
+    "google-genai>=1.63.0",
+    "jupyter>=1.1.1",
+    "pipeline>=0.1.0",
+    "scikit-learn>=1.8.0",
+    "sentence-transformers>=5.2.2",
+    "tenacity>=9.1.4",
+    "tqdm>=4.67.3",
+    "pandas<3.0.0; sys_platform == 'darwin' and platform_machine == 'x86_64'",
+    "numpy<2; sys_platform == 'darwin' and platform_machine == 'x86_64'",
+    "torch==2.2.2; sys_platform == 'darwin' and platform_machine == 'x86_64'",
+    "transformers<5.0.0; sys_platform == 'darwin' and platform_machine == 'x86_64'",
+    "numpy>=2; sys_platform == 'linux'",
+    "torch>=2.4; sys_platform == 'linux'",
+    "transformers>=5.0.0; sys_platform == 'linux'",
+    "pandas>=3.0.0; sys_platform == 'linux'",
+    "transformers[torch]>=4.57.6",
+    "flatdict>=4.1.0",
+    "matplotlib>=3.10.8",
+    "seaborn>=0.13.2",
+    "tabulate>=0.10.0",
+]
+
+[dependency-groups]
+dev = [
+    "black>=26.1.0",
+]
