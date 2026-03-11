@@ -11,7 +11,7 @@ import transformers
 
 logger = logging.getLogger(__name__)
 
-INPUT_FILE = "sarc_with_neutral.csv"
+INPUT_FILE = "train.csv"
 
 
 def hf_token():

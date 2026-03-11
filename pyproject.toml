@@ -10,7 +10,6 @@ dependencies = [
     "google-genai>=1.63.0",
     "jupyter>=1.1.1",
     "pipeline>=0.1.0",
-    "scikit-learn>=1.8.0",
     "sentence-transformers>=5.2.2",
     "tenacity>=9.1.4",
     "tqdm>=4.67.3",
