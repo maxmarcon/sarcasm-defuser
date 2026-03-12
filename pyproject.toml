@@ -26,6 +26,7 @@ dependencies = [
     "matplotlib>=3.10.8",
     "seaborn>=0.13.2",
     "tabulate>=0.10.0",
+    "gradio>=6.9.0",
 ]
 
 [dependency-groups]
