@@ -1,5 +1,5 @@
 import pandas as pd
-import os, argparse, dotenv, logging
+import os, argparse, logging
 from datasets import Dataset
 from huggingface_hub import create_repo, login, whoami
 from transformers import (
@@ -12,14 +12,6 @@ import transformers
 logger = logging.getLogger(__name__)
 
 INPUT_FILE = "train.csv"
-
-
-def hf_token():
-    return os.environ["HFHUB_TOKEN"]
-
-
-def hf_login():
-    login(hf_token())
 
 
 def make_datasets(input_file) -> Dataset:
@@ -96,8 +88,7 @@ if __name__ == "__main__":
     )
     transformers.utils.logging.set_verbosity_info()
 
-    dotenv.load_dotenv()
-    hf_login()
+    login()
 
     parser = argparse.ArgumentParser()
     parser.add_argument("model")

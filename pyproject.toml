@@ -6,7 +6,6 @@ readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "datasets>=4.5.0",
-    "dotenv>=0.9.9",
     "google-genai>=1.63.0",
     "jupyter>=1.1.1",
     "pipeline>=0.1.0",

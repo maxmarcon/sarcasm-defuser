@@ -8,7 +8,6 @@ from typing import Iterable
 from datasets import Dataset
 from torch.utils.data import DataLoader
 from huggingface_hub import metadata_update, EvalResult, login
-from dotenv import load_dotenv
 import torch
 from modelbag import ModelBag
 
@@ -35,14 +34,6 @@ def make_stats(vals):
         },
         **{f"q{i+1}": quartiles[i] for i in range(len(quartiles))},
     }
-
-
-def hf_login():
-    login(hf_token())
-
-
-def hf_token():
-    return os.environ["HFHUB_TOKEN"]
 
 
 class SarcasmScorer:
@@ -276,8 +267,7 @@ if __name__ == "__main__":
         datefmt="%Y-%m-%d %H:%M:%S",
     )
 
-    load_dotenv()
-    hf_login()
+    login()
 
     parser = argparse.ArgumentParser()
 
