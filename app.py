@@ -6,6 +6,11 @@ def create_prompt(input_text: str, tokenizer):
     return f"{input_text}{tokenizer.bos_token}"
 
 
+MODEL_NAME = {
+    "gpt2-sarcasm-defuser": "GPT2 (small)",
+    "gpt2-medium-sarcasm-defuser": "GPT (medium)",
+    "bart-base-sarcasm-defuser": "BART",
+}
 MODELS = [
     "gpt2-sarcasm-defuser",
     "gpt2-medium-sarcasm-defuser",
@@ -51,14 +56,19 @@ gradio_app = gr.Interface(
     fn=sarcasm_defuser,
     inputs=[
         gr.Textbox(),
-        gr.Radio(MODELS, value=MODELS[0], label="Model"),
+        gr.Radio(
+            choices=[(MODEL_NAME[m], m) for m in MODELS],
+            value=MODELS[0],
+            label="Model",
+        ),
         gr.Number(50, label="Max Tokens", precision=0),
-        gr.Checkbox(False, label="Greedy"),
+        gr.Checkbox(True, label="Greedy"),
         gr.Number(1.0, label="Temperature", precision=1, step=0.1),
     ],
     flagging_mode="never",
     outputs=["text"],
     title="Sarcasm Defuser",
+    clear_btn=None,
 )
 
 if __name__ == "__main__":
