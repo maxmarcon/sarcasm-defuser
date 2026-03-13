@@ -1,5 +1,7 @@
 # Defusing sarcasm with Transformers
 
+**NOTE:** The models trained as part of this work can be [queried here](https://huggingface.co/spaces/maxmarcon/sarcasm-defuser)
+
 ## Description
 
 Goal of this project is to train LLMs based on the transformer architecture to behave as a "sarcasm defuser". The sarcasm defuser's job is to take as input a sarcastic comment and convert it into a "neutral" comment with the same meaning but stripped of all sarcastic connotation.
