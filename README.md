@@ -83,11 +83,7 @@ here, `<SARCASTIC_COMMENT>` is the original sarcastic comment we want Gemma to n
 | He meant "tossback" since he can't throw far enough,                           | He meant "throwback" because he doesn't throw very far.                                                |
 | Rich Piana's Real Food helped me to get bigger by the day                      | Rich Piana's Real Food helped me gain size.                                                            |
 
-
 Of this ~5000 comments, we sample 90% to be our train set and 10% to be our test set, resulting in a training and test set of 4448 and 495 comments, respectively
-
-    (4943, 11) (4448, 11) (495, 11)
-
 
 # Evaluation methodology
 
@@ -143,7 +139,7 @@ Here's the results for all models:
 
 
     
-![png](README_files/README_12_0.png)
+![png](README_files/README_11_0.png)
     
 
 
@@ -224,7 +220,7 @@ In the evaluation we also include the vanilla **gpt2** and **bart** models (i.e.
 
 
     
-![png](README_files/README_18_0.png)
+![png](README_files/README_17_0.png)
     
 
 
@@ -238,7 +234,7 @@ Finally, for the 3 winning models/configurations, we plot boxplots of similarity
 
 
     
-![png](README_files/README_20_0.png)
+![png](README_files/README_19_0.png)
     
 
 
