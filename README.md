@@ -1,6 +1,6 @@
-# Defusing sarcasm with Transformers
+**NOTE:** The models trained as part of this work are available [on HuggingFace](https://huggingface.co/maxmarcon) and can be queried live [on this HuggingFace Space](https://huggingface.co/spaces/maxmarcon/sarcasm-defuser)
 
-**NOTE:** The models trained as part of this work can be [queried here](https://huggingface.co/spaces/maxmarcon/sarcasm-defuser)
+# Defusing sarcasm with Transformers
 
 ## Description
 
@@ -141,7 +141,7 @@ Here's the results for all models:
 
 
     
-![png](README_files/README_11_0.png)
+![png](media/README_temp_11_0.png)
     
 
 
@@ -222,7 +222,7 @@ In the evaluation we also include the vanilla **gpt2** and **bart** models (i.e.
 
 
     
-![png](README_files/README_17_0.png)
+![png](media/README_temp_17_0.png)
     
 
 
@@ -236,7 +236,7 @@ Finally, for the 3 winning models/configurations, we plot boxplots of similarity
 
 
     
-![png](README_files/README_19_0.png)
+![png](media/README_temp_19_0.png)
     
 
 
