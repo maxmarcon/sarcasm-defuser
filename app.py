@@ -1,4 +1,5 @@
 import gradio as gr
+
 from transformers import pipeline
 
 
@@ -7,9 +8,9 @@ def create_prompt(input_text: str, tokenizer):
 
 
 MODEL_NAME = {
-    "gpt2-sarcasm-defuser": "GPT2 (small)",
-    "gpt2-medium-sarcasm-defuser": "GPT (medium)",
-    "bart-base-sarcasm-defuser": "BART",
+    "gpt2-sarcasm-defuser": "GPT2 (small 0.1B params)",
+    "gpt2-medium-sarcasm-defuser": "GPT2 (medium 0.4B params)",
+    "bart-base-sarcasm-defuser": "BART (0.1B params)",
 }
 MODELS = [
     "gpt2-sarcasm-defuser",
@@ -55,18 +56,33 @@ def sarcasm_defuser(
 gradio_app = gr.Interface(
     fn=sarcasm_defuser,
     inputs=[
-        gr.Textbox(),
+        gr.Textbox(label="Enter sarcastic comment here"),
         gr.Radio(
             choices=[(MODEL_NAME[m], m) for m in MODELS],
             value=MODELS[0],
             label="Model",
         ),
-        gr.Number(50, label="Max Tokens", precision=0),
-        gr.Checkbox(True, label="Greedy"),
-        gr.Number(1.0, label="Temperature", precision=1, step=0.1),
+        gr.Number(
+            50,
+            label="Max Tokens",
+            precision=0,
+            info="Max number of tokens that will be generated",
+        ),
+        gr.Checkbox(
+            True,
+            label="Greedy",
+            info="When greedy, the model selects the highest probability tokens without random sampling",
+        ),
+        gr.Number(
+            1.0,
+            label="Temperature",
+            precision=1,
+            step=0.1,
+            info='The higher the temperature, the higher the randomness in the output tokens (ignored when "Greedy" is checked)',
+        ),
     ],
     flagging_mode="never",
-    outputs=["text"],
+    outputs=gr.Textbox(label="Defused comment from model"),
     title="Sarcasm Defuser",
     clear_btn=None,
 )
