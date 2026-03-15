@@ -1,4 +1,4 @@
-**NOTE:** The models trained as part of this work are available [on HuggingFace](https://huggingface.co/maxmarcon) and can be queried live [on this HuggingFace Space](https://huggingface.co/spaces/maxmarcon/sarcasm-defuser)
+<!-- **NOTE:** The models trained as part of this work are available [on HuggingFace](https://huggingface.co/maxmarcon) and can be queried live [on this HuggingFace Space](https://huggingface.co/spaces/maxmarcon/sarcasm-defuser) -->
 
 # Defusing sarcasm with Transformers
 
@@ -21,8 +21,9 @@ In the rest of this document, we will:
 1. Briefly introduce the transformer architecture and LLMs.
 2. Describe the dataset that we use to train our LLMs to defuse sarcasm. 
 3. Describe the methodology we use to quantitatively evaluate the trained model
-4. Briefly describe how the models were trained and present the results. 
-5. Finally, we'll outline the shortcomings of this analysis as well as possible ideas for future work
+4. Describe how the models were trained and evaluated 
+5. Present the results of the evaluation 
+6. Finally, we'll outline the shortcomings of this analysis as well as possible ideas for future work
 
 ## Transformer architecture
 
@@ -87,7 +88,7 @@ here, `<SARCASTIC_COMMENT>` is the original sarcastic comment we want Gemma to n
 
 Of this ~5000 comments, we sample 90% to be our train set and 10% to be our test set, resulting in a training and test set of 4448 and 495 comments, respectively.
 
-# Evaluation methodology
+## Evaluation methodology
 
 Once we train a defuser model on the pairs of sarcastic/neutral comments, how can we quantitavely assess its ability at "defusing" sarcasm? Remember, we'd like the model to generate comments that are (1) non-sarcastic and (2) have the same meaning as the original one.
 
@@ -100,7 +101,7 @@ To compute 1 and 2, we will use some similarity and sarcasm models available via
 
 Here's a summary of the models we tested:
 
-## Sarcasm models
+### Sarcasm models
 
 | **Model** | Description |
 |---|---|
@@ -108,7 +109,7 @@ Here's a summary of the models we tested:
 | **[helinivan/multilingual-sarcasm-detector](https://huggingface.co/helinivan/multilingual-sarcasm-detector)** | Multilingual Sarcasm Detector is a text classification model built to detect sarcasm from news article titles. It is fine-tuned on bert-base-multilingual-uncased |
 | **[pn89348/sarcasm_model](https://huggingface.co/pn89348/sarcasm_model)** | Fine-tuned version of distilbert/distilbert-base-uncased |
 
-## Semantic Similarity models
+### Semantic Similarity models
 
 | **Model** | Description |
 |---|---|
@@ -125,7 +126,7 @@ Here's a summary of the models we tested:
 
 These models can be instantiated and queried using the [Sentence Transformers](https://sbert.net/) library. They assign each pair of sentences a semantic similarity score. Different scoring metrics can be used. We choose to use [cosine similarty](https://en.wikipedia.org/wiki/Cosine_similarity) because it's bounded in `[0, 1]` making it easier to compare across different models.
 
-## Choosing the best similarity and sarcasm models
+### Choosing the best similarity and sarcasm models
 
 Out of the models listed above, we want to pick the 2 best ones (one for sarcasm, one for semantic similarity) that we will use to evaluate our trained defusing models.
 
@@ -213,7 +214,7 @@ There are quite a few parameters that control how these generative models genera
 
 We test the trained models with all possible combinations of these parameters (12 in total).
 
-### Results
+## Results
 
 For all models identified above and the different generation parameters, we plot (1) the median similarity and sarcasm scores on a similarity/sarcasm plot and (2) 
 we identify the models and generation parameters that beat our `Gemma` baseline (i.e. similarity at least as high, sarcasm score at least as low).
