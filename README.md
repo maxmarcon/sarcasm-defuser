@@ -124,7 +124,7 @@ Here's a summary of the models we tested:
 | **[paraphrase-albert-small-v2](https://huggingface.co/sentence-transformers/paraphrase-albert-small-v2)** | This is a sentence-transformers model: It maps sentences & paragraphs to a 768 dimensional dense vector space and can be used for tasks like clustering or semantic search. |
 | **[paraphrase-multilingual-mpnet-base-v2](https://huggingface.co/sentence-transformers/paraphrase-multilingual-mpnet-base-v2)** | This is a sentence-transformers model: It maps sentences & paragraphs to a 768 dimensional dense vector space and can be used for tasks like clustering or semantic search. |
 
-These models can be instantiated and queried using the [Sentence Transformers](https://sbert.net/) library. They assign each pair of sentences a semantic similarity score. Different scoring metrics can be used. We choose to use [cosine similarty](https://en.wikipedia.org/wiki/Cosine_similarity) because it's bounded in `[0, 1]` making it easier to compare across different models.
+These models can be instantiated and queried using the [Sentence Transformers](https://sbert.net/) library. They assign each pair of sentences a semantic similarity score. Different scoring metrics can be used. We choose to use [cosine similarty](https://en.wikipedia.org/wiki/Cosine_similarity) because it's bounded in `[-1, 1]` making it easier to compare across different models.
 
 ### Choosing the best similarity and sarcasm models
 
